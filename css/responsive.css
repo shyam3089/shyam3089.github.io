@@ -1,0 +1,363 @@
+/* ===================================
+   Responsive Design - Mobile First
+   =================================== */
+
+/* Tablet (max-width: 992px) */
+@media (max-width: 992px) {
+    /* Typography adjustments */
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.75rem; }
+    
+    /* Header - maintain consistent height */
+    .header {
+        height: 70px;
+    }
+    
+    .header .container {
+        margin: 0 5%;
+    }
+    
+    /* Hero Section */
+    .hero {
+        min-height: auto;
+        padding-top: calc(var(--spacing-xl) + 70px);
+    }
+    
+    .hero .container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-description {
+        font-size: 1.1rem;
+    }
+    
+    .hero-image {
+        order: -1;
+    }
+    
+    .floating-card {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .floating-card i {
+        font-size: 5rem;
+    }
+    
+    /* About Section */
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Services Section */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+    
+    /* Products Section */
+    .product-showcase {
+        grid-template-columns: 1fr;
+    }
+    
+    .product-visuals {
+        order: -1;
+    }
+    
+    /* Contact Section */
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+    /* Root adjustments */
+    :root {
+        --spacing-xl: 2rem;
+        --spacing-2xl: 3rem;
+    }
+    
+    /* Container */
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    section {
+        padding: var(--spacing-xl) 0;
+    }
+    
+    /* Typography */
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.5rem; }
+    h4 { font-size: 1.25rem; }
+    
+    /* Header - maintain consistent height */
+    .header {
+        height: 70px;
+    }
+    
+    .header .container {
+        margin: 0 auto;
+        padding: 0 var(--spacing-sm);
+    }
+    
+    /* Navigation */
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: var(--bg-white);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: var(--spacing-lg) 0;
+        gap: 0;
+        box-shadow: var(--shadow-lg);
+        transition: var(--transition-base);
+        overflow-y: auto;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .nav-link {
+        display: block;
+        padding: var(--spacing-md);
+        font-size: 1.1rem;
+    }
+    
+    .nav-link::after {
+        display: none;
+    }
+    
+    /* Hero Section */
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .floating-card {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .floating-card i {
+        font-size: 4rem;
+    }
+    
+    /* Section Headers */
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* About Section */
+    .stats {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+    
+    /* Services Section */
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Products Section */
+    .product-logo {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .product-name {
+        font-size: 2rem;
+    }
+    
+    .product-tagline {
+        font-size: 1.1rem;
+    }
+    
+    .product-description {
+        font-size: 1rem;
+    }
+    
+    .product-visuals {
+        flex-direction: column;
+    }
+    
+    .phone-mockup {
+        max-width: 100%;
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    /* Typography */
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.5rem; }
+    
+    /* Header - maintain consistent height */
+    .header {
+        height: 70px;
+    }
+    
+    /* Buttons */
+    .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    /* Hero Section */
+    .hero {
+        padding-top: calc(var(--spacing-lg) + 70px);
+    }
+    
+    .hero-title {
+        font-size: 1.75rem;
+    }
+    
+    .floating-card {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .floating-card i {
+        font-size: 3rem;
+    }
+    
+    /* Service Cards */
+    .service-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .service-icon i {
+        font-size: 1.5rem;
+    }
+    
+    /* Stats */
+    .stat-item {
+        padding: var(--spacing-sm);
+    }
+    
+    .stat-item h4 {
+        font-size: 1.5rem;
+    }
+    
+    /* Product */
+    .product-logo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .product-name {
+        font-size: 1.75rem;
+    }
+    
+    /* Contact */
+    .contact-form {
+        padding: var(--spacing-md);
+    }
+    
+    .social-links a {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .social-links a i {
+        font-size: 1.1rem;
+    }
+}
+
+/* Landscape Mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+    .nav-menu {
+        height: calc(100vh - 60px);
+        padding: var(--spacing-md) 0;
+    }
+    
+    .nav-link {
+        padding: var(--spacing-sm);
+    }
+    
+    .hero {
+        min-height: auto;
+        padding: var(--spacing-xl) 0;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .header,
+    .hamburger,
+    .hero-buttons,
+    .contact-form,
+    .social-links,
+    .footer {
+        display: none;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+    
+    h1 { font-size: 24pt; }
+    h2 { font-size: 20pt; }
+    h3 { font-size: 16pt; }
+    
+    section {
+        page-break-inside: avoid;
+    }
+}

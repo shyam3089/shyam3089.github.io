@@ -1,0 +1,15 @@
+[
+	{
+	  "relation": [
+		"delegate_permission/common.handle_all_urls",
+		"delegate_permission/common.get_login_creds"
+	  ],
+	  "target": {
+		"namespace": "android_app",
+		"package_name": "com.smctechlabs.litelist_app",
+		"sha256_cert_fingerprints": [
+		  "CA:0C:BC:78:98:CF:EE:6D:76:41:CE:00:EB:96:59:E0:E5:7B:3A:C7:16:AA:3A:6D:FE:5F:3E:54:7B:78:E6:AC"
+		]
+	  }
+	}
+  ]
