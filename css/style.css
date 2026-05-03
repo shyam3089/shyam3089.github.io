@@ -132,7 +132,7 @@ section {
    Typography
    =================================== */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.2;
     margin-bottom: var(--spacing-sm);
 }
@@ -165,7 +165,7 @@ p {
     gap: var(--spacing-xs);
     padding: 0.875rem 1.75rem;
     border-radius: var(--radius-lg);
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1rem;
     transition: var(--transition-base);
     cursor: pointer;
@@ -273,7 +273,7 @@ p {
     align-items: center;
     gap: var(--spacing-xs);
     font-size: 1.5rem;
-    font-weight: 800;
+    font-weight: 600;
     color: var(--text-dark);
     flex-shrink: 0;
 }
