@@ -11,6 +11,13 @@ const navMenu = document.getElementById('navMenu');
 const header = document.getElementById('header');
 const navLinks = document.querySelectorAll('.nav-link');
 const contactForm = document.getElementById('contactForm');
+const policyAppToggles = document.querySelectorAll('.policy-app-toggle');
+const productSliderTrack = document.getElementById('productSliderTrack');
+const productSlides = document.querySelectorAll('.product-slide');
+const productPrev = document.getElementById('productPrev');
+const productNext = document.getElementById('productNext');
+const productSliderDots = document.getElementById('productSliderDots');
+let activeProductSlide = 0;
 
 // ===================================
 // Mobile Navigation Toggle
@@ -30,6 +37,82 @@ function toggleMobileMenu() {
 // Event listener for hamburger button
 if (hamburger) {
     hamburger.addEventListener('click', toggleMobileMenu);
+}
+
+// ===================================
+// Apps Privacy Policy Sidebar
+// ===================================
+policyAppToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+        const subnavId = toggle.getAttribute('aria-controls');
+        const subnav = document.getElementById(subnavId);
+        const appGroup = toggle.closest('.policy-app-group');
+
+        if (!subnav || !appGroup) {
+            return;
+        }
+
+        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!isExpanded));
+        subnav.hidden = isExpanded;
+        appGroup.classList.toggle('is-open', !isExpanded);
+    });
+});
+
+// ===================================
+// Products Slider
+// ===================================
+function updateProductSlider() {
+    if (!productSliderTrack || !productSlides.length) {
+        return;
+    }
+
+    productSliderTrack.style.transform = `translateX(-${activeProductSlide * 100}%)`;
+
+    productSlides.forEach((slide, index) => {
+        const isHidden = index !== activeProductSlide;
+        slide.setAttribute('aria-hidden', String(isHidden));
+        slide.querySelectorAll('a, button').forEach(interactiveElement => {
+            interactiveElement.tabIndex = isHidden ? -1 : 0;
+        });
+    });
+
+    if (productSliderDots) {
+        productSliderDots.querySelectorAll('.product-slider-dot').forEach((dot, index) => {
+            dot.classList.toggle('active', index === activeProductSlide);
+            dot.setAttribute('aria-current', index === activeProductSlide ? 'true' : 'false');
+        });
+    }
+}
+
+function setProductSlide(index) {
+    if (!productSlides.length) {
+        return;
+    }
+
+    activeProductSlide = (index + productSlides.length) % productSlides.length;
+    updateProductSlider();
+}
+
+if (productSliderTrack && productSlides.length && productSliderDots) {
+    productSlides.forEach((slide, index) => {
+        const dot = document.createElement('button');
+        dot.className = 'product-slider-dot';
+        dot.type = 'button';
+        dot.setAttribute('aria-label', `Show ${slide.getAttribute('aria-label') || `product ${index + 1}`}`);
+        dot.addEventListener('click', () => setProductSlide(index));
+        productSliderDots.appendChild(dot);
+    });
+
+    if (productPrev) {
+        productPrev.addEventListener('click', () => setProductSlide(activeProductSlide - 1));
+    }
+
+    if (productNext) {
+        productNext.addEventListener('click', () => setProductSlide(activeProductSlide + 1));
+    }
+
+    updateProductSlider();
 }
 
 // ===================================
@@ -91,12 +174,12 @@ function updateActiveNavLink() {
         const sectionId = section.getAttribute('id');
         
         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${sectionId}`) {
-                    link.classList.add('active');
-                }
-            });
+            const activeLink = Array.from(navLinks).find(link => link.getAttribute('href') === `#${sectionId}`);
+
+            if (activeLink) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                activeLink.classList.add('active');
+            }
         }
     });
 }
@@ -106,8 +189,12 @@ function updateActiveNavLink() {
 // ===================================
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-        e.preventDefault();
         const targetId = link.getAttribute('href');
+        if (!targetId || !targetId.startsWith('#')) {
+            return;
+        }
+
+        e.preventDefault();
         const targetSection = document.querySelector(targetId);
         
         if (targetSection) {
@@ -286,7 +373,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
-    const animateElements = document.querySelectorAll('.service-card, .about-card, .product-showcase');
+    const animateElements = document.querySelectorAll('.service-card, .about-card, .product-slider');
     animateElements.forEach(el => {
         el.style.opacity = '0';
         observer.observe(el);

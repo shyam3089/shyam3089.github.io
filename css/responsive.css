@@ -68,6 +68,7 @@
     /* Products Section */
     .product-showcase {
         grid-template-columns: 1fr;
+        padding: 0 var(--spacing-md);
     }
     
     .product-visuals {
@@ -77,6 +78,15 @@
     /* Contact Section */
     .contact-content {
         grid-template-columns: 1fr;
+    }
+
+    /* Policy Page */
+    .policy-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .policy-sidebar {
+        position: static;
     }
     
     /* Footer */
@@ -196,6 +206,19 @@
     .section-subtitle {
         font-size: 1rem;
     }
+
+    /* Policy Page */
+    .policy-hero h1 {
+        font-size: 2.25rem;
+    }
+
+    .policy-intro {
+        font-size: 1rem;
+    }
+
+    .app-policy-header {
+        align-items: flex-start;
+    }
     
     /* About Section */
     .stats {
@@ -224,6 +247,10 @@
     
     .product-description {
         font-size: 1rem;
+    }
+
+    .product-showcase {
+        padding: 0 var(--spacing-sm);
     }
     
     .product-visuals {
@@ -303,6 +330,20 @@
     
     .product-name {
         font-size: 1.75rem;
+    }
+
+    /* Policy Page */
+    .policy-hero h1 {
+        font-size: 1.9rem;
+    }
+
+    .policy-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .policy-section p,
+    .policy-section li {
+        font-size: 1rem;
     }
     
     /* Contact */

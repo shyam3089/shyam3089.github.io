@@ -203,6 +203,8 @@ p {
     background: var(--text-dark);
     color: var(--bg-white);
     padding: 0.75rem 1.5rem;
+    margin-right: ;
+    margin-right: 1rem
 }
 
 .btn-playstore:hover {
@@ -608,12 +610,81 @@ p {
     background: var(--bg-white);
 }
 
+.product-slider {
+    position: relative;
+}
+
+.product-slider-viewport {
+    overflow: hidden;
+}
+
+.product-slider-track {
+    display: flex;
+    transition: transform var(--transition-slow);
+    will-change: transform;
+}
+
 .product-showcase {
+    flex: 0 0 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-xl);
     align-items: center;
-    margin-bottom: var(--spacing-xl);
+    padding: 0 var(--spacing-lg);
+    margin-bottom: 0;
+}
+
+.product-showcase + .product-showcase {
+    padding-top: 0;
+    border-top: none;
+}
+
+.product-slider-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+}
+
+.product-slider-btn {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background: var(--bg-white);
+    color: var(--text-dark);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-base);
+}
+
+.product-slider-btn:hover {
+    border-color: var(--primary-color);
+    background: var(--bg-light);
+    transform: translateY(-2px);
+}
+
+.product-slider-dots {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.product-slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--border-color);
+    transition: var(--transition-base);
+}
+
+.product-slider-dot.active {
+    width: 28px;
+    border-radius: 999px;
+    background: var(--primary-dark);
 }
 
 .product-logo {
@@ -694,6 +765,228 @@ p {
 .phone-mockup img {
     width: 100%;
     height: auto;
+}
+
+.phone-placeholder {
+    aspect-ratio: 9 / 19;
+    background: var(--bg-light);
+    border: 2px dashed var(--border-color);
+}
+
+.screenshot-placeholder {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-lg);
+    text-align: center;
+    color: var(--text-light);
+}
+
+.screenshot-placeholder i {
+    color: var(--primary-dark);
+    font-size: 2rem;
+}
+
+.screenshot-placeholder span {
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* ===================================
+   Apps Privacy Policy Page
+   =================================== */
+.policy-hero {
+    padding-top: calc(var(--spacing-2xl) + 80px);
+    padding-bottom: var(--spacing-xl);
+    background: linear-gradient(135deg, #f8f9fa 0%, #eef2f5 100%);
+}
+
+.policy-hero h1 {
+    max-width: 780px;
+    font-size: 3.25rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.policy-eyebrow {
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    text-transform: uppercase;
+    letter-spacing: 0;
+}
+
+.policy-intro {
+    max-width: 760px;
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+.policy-updated {
+    color: var(--text-dark);
+    font-weight: 500;
+    margin-top: var(--spacing-md);
+    margin-bottom: 0;
+}
+
+.policy-content {
+    background: var(--bg-white);
+}
+
+.policy-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--spacing-xl);
+    align-items: start;
+}
+
+.policy-sidebar {
+    position: sticky;
+    top: 100px;
+    padding: var(--spacing-lg);
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+}
+
+.policy-sidebar h2 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.policy-sidebar a {
+    display: block;
+    color: var(--text-light);
+    padding: 0.45rem 0;
+}
+
+.policy-sidebar a:hover {
+    color: var(--text-dark);
+}
+
+.policy-app-group {
+    margin-bottom: var(--spacing-xs);
+}
+
+.policy-app-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+    color: var(--text-light);
+    padding: 0.45rem 0;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.policy-app-toggle:hover {
+    color: var(--text-dark);
+}
+
+.policy-app-toggle i {
+    font-size: 0.8rem;
+    transition: transform var(--transition-base);
+}
+
+.policy-app-group.is-open .policy-app-toggle {
+    color: var(--text-dark);
+}
+
+.policy-app-group.is-open .policy-app-toggle i {
+    transform: rotate(180deg);
+}
+
+.policy-subnav {
+    margin: 0.15rem 0 var(--spacing-sm) var(--spacing-md);
+    padding-left: var(--spacing-sm);
+    border-left: 2px solid var(--border-color);
+}
+
+.policy-subnav a {
+    font-size: 0.95rem;
+    padding: 0.35rem 0;
+}
+
+.policy-article {
+    max-width: 820px;
+}
+
+.policy-section {
+    padding: 0 0 var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.policy-section:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.policy-section h2 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.policy-section h3 {
+    font-size: 1.35rem;
+    margin-top: var(--spacing-md);
+}
+
+.policy-section p,
+.policy-section li {
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.policy-section ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+    color: var(--text-light);
+}
+
+.policy-section li {
+    margin-bottom: var(--spacing-sm);
+}
+
+.policy-section a {
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+.app-policy-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.app-policy-header h2 {
+    margin-bottom: 0.25rem;
+}
+
+.app-policy-header p {
+    margin-bottom: 0;
+}
+
+.app-policy-icon {
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: #181818;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.app-policy-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* ===================================
