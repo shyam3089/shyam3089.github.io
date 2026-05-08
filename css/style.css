@@ -125,7 +125,7 @@ button {
 }
 
 section {
-    padding: var(--spacing-2xl) 0;
+    padding: var(--spacing-xl) 0;
 }
 
 /* ===================================
@@ -203,8 +203,7 @@ p {
     background: var(--text-dark);
     color: var(--bg-white);
     padding: 0.75rem 1.5rem;
-    margin-right: ;
-    margin-right: 1rem
+    margin-right: 1rem;
 }
 
 .btn-playstore:hover {
@@ -374,7 +373,7 @@ p {
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: 3rem;
     margin-bottom: var(--spacing-md);
     line-height: 1.1;
 }
@@ -398,26 +397,58 @@ p {
     animation: fadeInRight 0.8s ease;
 }
 
-.floating-card {
+.hero-app-slider {
+    position: relative;
     width: 300px;
     height: 300px;
-    background: var(--gradient-1);
-    border-radius: var(--radius-xl);
+    perspective: 900px;
+    transform-style: preserve-3d;
+}
+
+.hero-app-card {
+    position: absolute;
+    inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: var(--bg-white);
+    border-radius: var(--radius-xl);
     box-shadow: var(--shadow-xl);
-    animation: float 3s ease-in-out infinite;
+    animation: appIconOrbit 8s ease-in-out infinite;
+    will-change: transform, opacity;
 }
 
-.floating-card i {
-    font-size: 8rem;
-    color: var(--bg-white);
+.hero-app-card-litelist {
+    animation-delay: -4s;
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+.hero-app-card-tv {
+    animation-delay: 0s;
+}
+
+.hero-app-card img {
+    width: 62%;
+    height: 62%;
+    object-fit: contain;
+    border-radius: var(--radius-lg);
+}
+
+@keyframes appIconOrbit {
+    0%, 40% {
+        opacity: 1;
+        transform: translate3d(0, 0, 90px) rotateY(0deg) scale(1);
+        z-index: 2;
+    }
+    50%, 90% {
+        opacity: 0.45;
+        transform: translate3d(70%, -9%, -100px) rotateY(-28deg) scale(0.74);
+        z-index: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 90px) rotateY(0deg) scale(1);
+        z-index: 2;
+    }
 }
 
 @keyframes fadeInUp {
@@ -447,11 +478,11 @@ p {
    =================================== */
 .section-header {
     text-align: center;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: var(--spacing-sm);
 }
 
@@ -608,10 +639,16 @@ p {
    =================================== */
 .products {
     background: var(--bg-white);
+    padding: var(--spacing-lg) 0;
+    scroll-margin-top: 40px;
 }
 
 .product-slider {
     position: relative;
+}
+
+.products .section-header {
+    margin-bottom: var(--spacing-md);
 }
 
 .product-slider-viewport {
@@ -627,10 +664,10 @@ p {
 .product-showcase {
     flex: 0 0 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-xl);
+    grid-template-columns: minmax(320px, 0.9fr) minmax(420px, 1.1fr);
+    gap: var(--spacing-lg);
     align-items: center;
-    padding: 0 var(--spacing-lg);
+    padding: 0 var(--spacing-md);
     margin-bottom: 0;
 }
 
@@ -644,12 +681,12 @@ p {
     align-items: center;
     justify-content: center;
     gap: var(--spacing-md);
-    margin-top: var(--spacing-xl);
+    margin-top: var(--spacing-lg);
 }
 
 .product-slider-btn {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -689,9 +726,9 @@ p {
 
 .product-logo {
     display: inline-block;
-    width: 120px;
-    height: 120px;
-    margin-right: var(--spacing-md);
+    width: 84px;
+    height: 84px;
+    margin-right: var(--spacing-sm);
     vertical-align: middle;
 }
 
@@ -703,56 +740,73 @@ p {
 
 .product-name {
     display: inline-block;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     margin-bottom: 0;
     vertical-align: middle;
 }
 
 .product-tagline {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     color: var(--accent-color);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
 }
 
 .product-description {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: var(--spacing-lg);
+    font-size: 1rem;
+    line-height: 1.55;
+    margin-bottom: var(--spacing-md);
 }
 
 .product-features {
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+.product-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+
+.product-buttons .btn {
+    min-height: 52px;
+    padding: 0.7rem 1.25rem;
+    border-radius: var(--radius-md);
+}
+
+.product-buttons .btn-playstore {
+    margin-right: 0;
 }
 
 .feature {
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 0.75rem;
 }
 
 .feature i {
     color: var(--success-color);
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     flex-shrink: 0;
 }
 
 .feature span {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--text-light);
 }
 
 .product-visuals {
     display: flex;
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
     justify-content: center;
     align-items: center;
 }
 
 .phone-mockup {
-    flex: 1;
-    max-width: 280px;
-    border-radius: var(--radius-xl);
+    flex: 0 1 180px;
+    max-width: 180px;
+    border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-xl);
     transition: var(--transition-base);
@@ -765,6 +819,8 @@ p {
 .phone-mockup img {
     width: 100%;
     height: auto;
+    max-height: min(54vh, 430px);
+    object-fit: contain;
 }
 
 .phone-placeholder {

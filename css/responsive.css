@@ -41,13 +41,9 @@
         order: -1;
     }
     
-    .floating-card {
+    .hero-app-slider {
         width: 200px;
         height: 200px;
-    }
-    
-    .floating-card i {
-        font-size: 5rem;
     }
     
     /* About Section */
@@ -66,13 +62,31 @@
     }
     
     /* Products Section */
+    .products {
+        padding: var(--spacing-md) 0;
+    }
+
+    .products .section-header {
+        margin-bottom: var(--spacing-sm);
+    }
+
     .product-showcase {
         grid-template-columns: 1fr;
+        gap: var(--spacing-md);
         padding: 0 var(--spacing-md);
     }
     
     .product-visuals {
         order: -1;
+        flex-direction: row;
+    }
+
+    .phone-mockup {
+        max-width: 180px;
+    }
+
+    .phone-mockup img {
+        max-height: min(36vh, 320px);
     }
     
     /* Contact Section */
@@ -110,7 +124,7 @@
     }
     
     section {
-        padding: var(--spacing-xl) 0;
+        padding: var(--spacing-md) 0;
     }
     
     /* Typography */
@@ -189,13 +203,9 @@
         justify-content: center;
     }
     
-    .floating-card {
+    .hero-app-slider {
         width: 180px;
         height: 180px;
-    }
-    
-    .floating-card i {
-        font-size: 4rem;
     }
     
     /* Section Headers */
@@ -233,32 +243,51 @@
     
     /* Products Section */
     .product-logo {
-        width: 100px;
-        height: 100px;
+        width: 64px;
+        height: 64px;
     }
     
     .product-name {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     
     .product-tagline {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
     }
     
     .product-description {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        line-height: 1.45;
+        margin-bottom: var(--spacing-sm);
     }
 
     .product-showcase {
+        gap: var(--spacing-sm);
         padding: 0 var(--spacing-sm);
     }
     
     .product-visuals {
-        flex-direction: column;
+        flex-direction: row;
+        gap: 0.75rem;
     }
     
     .phone-mockup {
-        max-width: 100%;
+        max-width: min(42vw, 145px);
+    }
+
+    .phone-mockup img {
+        max-height: min(32vh, 250px);
+    }
+
+    .product-slider-controls {
+        margin-top: var(--spacing-md);
+    }
+
+    .product-buttons .btn {
+        min-height: 48px;
+        padding: 0.65rem 1rem;
+        font-size: 0.95rem;
     }
     
     /* Footer */
@@ -294,13 +323,9 @@
         font-size: 1.75rem;
     }
     
-    .floating-card {
+    .hero-app-slider {
         width: 150px;
         height: 150px;
-    }
-    
-    .floating-card i {
-        font-size: 3rem;
     }
     
     /* Service Cards */
@@ -324,12 +349,32 @@
     
     /* Product */
     .product-logo {
-        width: 80px;
-        height: 80px;
+        width: 56px;
+        height: 56px;
     }
     
     .product-name {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
+    }
+
+    .product-description {
+        font-size: 0.9rem;
+    }
+
+    .feature {
+        margin-bottom: 0.5rem;
+    }
+
+    .feature span {
+        font-size: 0.9rem;
+    }
+
+    .phone-mockup {
+        max-width: min(42vw, 120px);
+    }
+
+    .phone-mockup img {
+        max-height: min(30vh, 220px);
     }
 
     /* Policy Page */
@@ -374,7 +419,7 @@
     
     .hero {
         min-height: auto;
-        padding: var(--spacing-xl) 0;
+        padding: var(--spacing-lg) 0;
     }
 }
 
