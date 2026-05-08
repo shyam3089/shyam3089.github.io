@@ -12,6 +12,8 @@ const header = document.getElementById('header');
 const navLinks = document.querySelectorAll('.nav-link');
 const contactForm = document.getElementById('contactForm');
 const policyAppToggles = document.querySelectorAll('.policy-app-toggle');
+const policyAppPanels = document.querySelectorAll('.policy-app-panel');
+const policySidebarLinks = document.querySelectorAll('.policy-subnav a');
 const productSliderTrack = document.getElementById('productSliderTrack');
 const productSlides = document.querySelectorAll('.product-slide');
 const productPrev = document.getElementById('productPrev');
@@ -42,21 +44,90 @@ if (hamburger) {
 // ===================================
 // Apps Privacy Policy Sidebar
 // ===================================
-policyAppToggles.forEach(toggle => {
-    toggle.addEventListener('click', () => {
+function getPolicyAppFromHash(hash) {
+    if (!hash) {
+        return null;
+    }
+
+    if (hash.startsWith('#tv-remote')) {
+        return 'tv-remote';
+    }
+
+    if (hash.startsWith('#litelist')) {
+        return 'litelist';
+    }
+
+    return null;
+}
+
+function setActivePolicyApp(appId) {
+    if (!appId || !policyAppPanels.length) {
+        return;
+    }
+
+    policyAppPanels.forEach(panel => {
+        panel.hidden = panel.dataset.policyApp !== appId;
+    });
+
+    policyAppToggles.forEach(toggle => {
         const subnavId = toggle.getAttribute('aria-controls');
         const subnav = document.getElementById(subnavId);
         const appGroup = toggle.closest('.policy-app-group');
+        const isActive = subnavId === `${appId}-subnav`;
 
-        if (!subnav || !appGroup) {
-            return;
+        toggle.setAttribute('aria-expanded', String(isActive));
+
+        if (subnav) {
+            subnav.hidden = !isActive;
         }
 
-        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-        toggle.setAttribute('aria-expanded', String(!isExpanded));
-        subnav.hidden = isExpanded;
-        appGroup.classList.toggle('is-open', !isExpanded);
+        if (appGroup) {
+            appGroup.classList.toggle('is-open', isActive);
+        }
     });
+}
+
+function scrollToPolicyTarget(hash) {
+    if (!hash || hash === '#') {
+        return;
+    }
+
+    const target = document.querySelector(hash);
+
+    if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+
+policyAppToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+        const subnavId = toggle.getAttribute('aria-controls');
+        const appId = subnavId ? subnavId.replace('-subnav', '') : null;
+
+        if (appId) {
+            setActivePolicyApp(appId);
+            scrollToPolicyTarget(`#${appId}`);
+        }
+    });
+});
+
+policySidebarLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        setActivePolicyApp(getPolicyAppFromHash(link.getAttribute('href')));
+    });
+});
+
+if (policyAppPanels.length) {
+    setActivePolicyApp(getPolicyAppFromHash(window.location.hash) || 'tv-remote');
+
+    if (window.location.hash) {
+        window.requestAnimationFrame(() => scrollToPolicyTarget(window.location.hash));
+    }
+}
+
+window.addEventListener('hashchange', () => {
+    setActivePolicyApp(getPolicyAppFromHash(window.location.hash));
+    scrollToPolicyTarget(window.location.hash);
 });
 
 // ===================================

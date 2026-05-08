@@ -972,6 +972,7 @@ p {
 }
 
 .policy-section {
+    scroll-margin-top: 90px;
     padding: 0 0 var(--spacing-xl);
     margin-bottom: var(--spacing-lg);
     border-bottom: 1px solid var(--border-color);
@@ -1035,9 +1036,9 @@ p {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    background: #181818;
     border-radius: var(--radius-md);
     overflow: hidden;
+    border: 1px solid #ccc
 }
 
 .app-policy-icon img {
