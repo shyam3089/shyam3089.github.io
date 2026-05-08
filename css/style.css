@@ -27,11 +27,11 @@
    =================================== */
 :root {
     /* Colors */
-    --primary-color: #F4D03F;
+    --primary-color: #dbb82e;
     --primary-dark: #D4AF37;
-    --secondary-color: #2C3E50;
+    --secondary-color: #33414f;
     --accent-color: #3498DB;
-    --text-dark: #1a1a1a;
+    --text-dark: #33414f;
     --text-light: #6c757d;
     --bg-light: #f8f9fa;
     --bg-white: #ffffff;
@@ -736,6 +736,7 @@ p {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    border-radius: 1rem;
 }
 
 .product-name {
@@ -747,7 +748,7 @@ p {
 
 .product-tagline {
     font-size: 1.1rem;
-    color: var(--accent-color);
+    color: var(--primary-color);
     margin-bottom: var(--spacing-sm);
 }
 
