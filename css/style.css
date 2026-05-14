@@ -414,16 +414,20 @@ p {
     background: var(--bg-white);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-xl);
-    animation: appIconOrbit 8s ease-in-out infinite;
+    animation: appIconOrbit 12s ease-in-out infinite;
     will-change: transform, opacity;
 }
 
 .hero-app-card-litelist {
-    animation-delay: -4s;
+    animation-delay: 0s;
 }
 
 .hero-app-card-tv {
-    animation-delay: 0s;
+    animation-delay: -4s;
+}
+
+.hero-app-card-rulr {
+    animation-delay: -8s;
 }
 
 .hero-app-card img {
@@ -434,14 +438,14 @@ p {
 }
 
 @keyframes appIconOrbit {
-    0%, 40% {
+    0%, 27% {
         opacity: 1;
         transform: translate3d(0, 0, 90px) rotateY(0deg) scale(1);
         z-index: 2;
     }
-    50%, 90% {
-        opacity: 0.45;
-        transform: translate3d(70%, -9%, -100px) rotateY(-28deg) scale(0.74);
+    37%, 95% {
+        opacity: 0.4;
+        transform: translate3d(70%, -9%, -100px) rotateY(-28deg) scale(0.72);
         z-index: 1;
     }
     100% {
@@ -802,6 +806,35 @@ p {
     gap: var(--spacing-sm);
     justify-content: center;
     align-items: center;
+}
+
+.product-visuals-strip {
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-md);
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) transparent;
+}
+
+.product-visuals-strip::-webkit-scrollbar {
+    height: 8px;
+}
+
+.product-visuals-strip::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.product-visuals-strip::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 999px;
+}
+
+.product-visuals-strip .phone-mockup {
+    flex: 0 0 180px;
+    scroll-snap-align: center;
 }
 
 .phone-mockup {

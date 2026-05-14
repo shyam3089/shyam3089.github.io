@@ -57,6 +57,10 @@ function getPolicyAppFromHash(hash) {
         return 'litelist';
     }
 
+    if (hash.startsWith('#rulr')) {
+        return 'rulr';
+    }
+
     return null;
 }
 
