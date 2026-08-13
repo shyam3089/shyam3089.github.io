@@ -415,7 +415,7 @@ p {
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-xl);
     animation: appIconOrbit 12s ease-in-out infinite;
-    will-change: transform, opacity;
+    will-change: transform;
 }
 
 .hero-app-card-litelist {
@@ -439,17 +439,14 @@ p {
 
 @keyframes appIconOrbit {
     0%, 27% {
-        opacity: 1;
         transform: translate3d(0, 0, 90px) rotateY(0deg) scale(1);
         z-index: 2;
     }
     37%, 95% {
-        opacity: 0.4;
         transform: translate3d(70%, -9%, -100px) rotateY(-28deg) scale(0.72);
         z-index: 1;
     }
     100% {
-        opacity: 1;
         transform: translate3d(0, 0, 90px) rotateY(0deg) scale(1);
         z-index: 2;
     }
