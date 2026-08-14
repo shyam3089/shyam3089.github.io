@@ -1,5 +1,5 @@
 /**
- * SMCTechLabs Website - Main JavaScript
+ * SMCTechLab Website - Main JavaScript
  * Handles navigation, animations, and user interactions
  */
 
@@ -509,5 +509,5 @@ window.addEventListener('load', () => {
 // ===================================
 // Console Message
 // ===================================
-console.log('%c👋 Welcome to SMCTechLabs!', 'font-size: 20px; font-weight: bold; color: #F4D03F;');
+console.log('%c👋 Welcome to SMCTechLab!', 'font-size: 20px; font-weight: bold; color: #F4D03F;');
 console.log('%cInterested in our code? Visit our website or contact us!', 'font-size: 14px; color: #6c757d;');

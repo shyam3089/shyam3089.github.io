@@ -1,6 +1,6 @@
-# SMCTechLabs Website
+# SMCTechLab Website
 
-A modern, mobile-responsive website for SMCTechLabs - an innovative app development company.
+A modern, mobile-responsive website for SMCTechLab - an innovative app development company.
 
 ## 🚀 Features
 
@@ -147,14 +147,14 @@ fetch('https://formspree.io/f/YOUR_FORM_ID', {
 
 ## 📄 License
 
-© 2025 SMCTechLabs. All rights reserved.
+© 2025 SMCTechLab. All rights reserved.
 
 ## 🤝 Support
 
 For issues or questions:
-- Email: info@SMCTechLabs.com
+- Email: info@SMCTechLab.com
 - Phone: +1 (555) 123-4567
 
 ---
 
-**Built with ❤️ by SMCTechLabs**
+**Built with ❤️ by SMCTechLab**
