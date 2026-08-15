@@ -1246,3 +1246,9 @@ p {
     color: rgba(255, 255, 255, 0.5);
     margin: 0;
 }
+.footer-ad {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin-top: 1rem;
+}
